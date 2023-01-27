@@ -8,42 +8,45 @@ import java.util.List;
 @Service
 public class MovieService {
     @Autowired
-    MovieRepository movieRepository ;
+    MovieRepository movieRepository;
+    String addmovie(Movie movie){
+        return movieRepository.addMovie(movie);
 
-    public void addMovie(Movie movie){
-        movieRepository.saveMovie(movie);
-    }
-    public void addDirector(Director director){
-
-        movieRepository.saveDirector(director);
     }
 
-    public void createMovieDirectorPair(String movie,String director){
-        movieRepository.saveMovieDirectorPair(movie,director);
+    String adddirector(Director director){
+        return movieRepository.addDirector(director);
     }
 
-    public Movie findMovie(String movieName){
-        return movieRepository.findMovie(movieName);
+    Movie getmoviebyname(String name){
+        return movieRepository.getmovie(name);
     }
 
-    public Director findDirector(String directorName){
-
-        return movieRepository.findDirector(directorName);
-    }
-    public List<String> findMoviesFromDirector(String director){
-        return movieRepository.findMoviesFromDirector(director);
+    Director getdirectorbyname(String name){
+        return movieRepository.getdirecor(name);
     }
 
-    public List<String > findAllMovies(){
-        return movieRepository.findAllMovies() ;
+    String addmoviedirectorPair(String mvName, String dirName){
+        return movieRepository.addpair(mvName,dirName);
     }
 
-    public void deleteDirector(String director){
-
-        movieRepository.deleteDirector(director);
+    List getallmovies(){
+        return movieRepository.getAllMovies();
     }
-    public void deleteAllDirector(){
 
-        movieRepository.deleteAllDirector();
+    String deleteDirectorByName(String dirName){
+        return movieRepository.deleteDirectorByName(dirName);
+    }
+
+    String deleteAllDirectors(){
+        return movieRepository.deleteAllDirectors();
+    }
+
+    List getMoviesByDirectorName(String dirName){
+        return movieRepository.getMoviesByDirectorName(dirName);
+    }
+
+    String getDirectorByMovieName(String mvName){
+        return movieRepository.getDirectorByMovieName(mvName);
     }
 }

@@ -41,7 +41,7 @@ public class MovieController {
         return new ResponseEntity<>(director,HttpStatus.CREATED) ;
     }
 
-    @GetMapping("get_movie_by_director_name/{director}")
+    @GetMapping("/get_movie_by_director_name/{director}")
     public ResponseEntity getMoviesByDirecorName(@PathVariable String director){
         List<String> movie = movieService.findMoviesFromDirector(director) ;
         return new ResponseEntity<>(movie,HttpStatus.CREATED) ;

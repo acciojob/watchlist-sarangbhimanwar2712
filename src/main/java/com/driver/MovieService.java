@@ -22,15 +22,15 @@ public class MovieService {
         movieRepository.saveMovieDirectorPair(movie,director);
     }
 
-    public Movie getMovie(String movieName){
+    public Movie findMovie(String movieName){
         return movieRepository.findMovie(movieName);
     }
 
-    public Director getDirector(String directorName){
+    public Director findDirector(String directorName){
 
         return movieRepository.findDirector(directorName);
     }
-    public List<String> getMoviesFromDirector(String director){
+    public List<String> findMoviesFromDirector(String director){
         return movieRepository.findMoviesFromDirector(director);
     }
 

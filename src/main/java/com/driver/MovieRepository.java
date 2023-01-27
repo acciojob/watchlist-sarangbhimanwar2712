@@ -14,16 +14,16 @@ public class MovieRepository {
     HashMap<String,Director> directorMap = new HashMap<>() ;
     HashMap<String, List<String>> directorMovieMap = new HashMap<>() ;
 
-    public void addMovie(Movie movie){
+    public void saveMovie(Movie movie){
         String name = movie.getName();
         movieMap.put(name,movie) ;
     }
-    public void addDirector(Director director){
+    public void saveDirector(Director director){
         String name = director.getName();
         directorMap.put(name,director) ;
     }
 
-    public void addMovieDirectorPair(String movie ,String director){
+    public void saveMovieDirectorPair(String movie ,String director){
         if(movieMap.containsKey(movie) && directorMap.containsKey(director)){
             List<String> currMovie = new ArrayList<>() ;
             if(directorMovieMap.containsKey(director)) currMovie = directorMovieMap.get(director) ;
@@ -31,15 +31,15 @@ public class MovieRepository {
             directorMovieMap.put(director,currMovie) ;
         }
     }
-    public Movie getMovie(String movie){
+    public Movie findMovie(String movie){
         return movieMap.get(movie) ;
     }
 
-    public Director getDirector(String director){
+    public Director findDirector(String director){
         return directorMap.get(director) ;
     }
 
-    public List<String> getMoviesFromDirector(String director){
+    public List<String> findMoviesFromDirector(String director){
         List<String> movieList = new ArrayList<>() ;
         if(directorMovieMap.containsKey(director)){
             movieList = directorMovieMap.get(director) ;
@@ -47,7 +47,7 @@ public class MovieRepository {
         return movieList ;
     }
 
-    public List<String> getAllMovies(){
+    public List<String> findAllMovies(){
         return new ArrayList<>(movieMap.keySet()) ;
     }
 

@@ -26,7 +26,7 @@ public class MovieController {
 
     @PutMapping("/add_movie_director_pair")
     public ResponseEntity addMovieDirectorPair(@RequestParam("movie") String movie , @RequestParam("director") String director){
-        movieService.addMovieDirectorPair(movie,director);
+        movieService.createMovieDirectorPair(movie,director);
         return new ResponseEntity<>("New movie-director pair added successfully",HttpStatus.CREATED) ;
     }
 
@@ -48,8 +48,8 @@ public class MovieController {
     }
 
     @GetMapping("/get_all_movies")
-    public ResponseEntity getAllMovies(){
-        List<String> movies = movieService.getAllMovies() ;
+    public ResponseEntity findAllMovies(){
+        List<String> movies = movieService.findAllMovies() ;
         return new ResponseEntity<>(movies,HttpStatus.CREATED) ;
     }
 
